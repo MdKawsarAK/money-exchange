@@ -50,7 +50,8 @@ class ProductController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $product = Product::find($id);
+        return view("$this->directory.edit", ["product" => $product]);
     }
 
     /**

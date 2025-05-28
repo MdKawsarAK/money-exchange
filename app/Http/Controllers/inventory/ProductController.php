@@ -4,6 +4,7 @@ namespace App\Http\Controllers\inventory;
 
 use App\Http\Controllers\Controller;
 use App\Models\inventory\Product;
+use App\Models\inventory\ProductCategory;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -11,10 +12,12 @@ class ProductController extends Controller
     /**
      * Display a listing of the resource.
      */
+    public $directory = "pages.inventory.products";
     public function index()
     {
         $products = Product::all();
-        return view('pages.inventory.products.index', ['products' => $products]);
+        $productCategories = ProductCategory::all();
+        return view("$this->directory.index", ['products' => $products, 'productCategories' => $productCategories]);
     }
 
     /**
@@ -38,7 +41,8 @@ class ProductController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $product = Product::find($id);
+        return view("$this->directory.view", ['product' => $product]);
     }
 
     /**

@@ -42,9 +42,10 @@
                         <div class="col-md-3">
                             <select class="form-control" id="filterCategory">
                                 <option value="">Filter by Category</option>
-                                <option value="1">Category 1</option>
-                                <option value="2">Category 2</option>
-                                <option value="5">Category 5</option>
+                                @foreach ($productCategories as $category)
+                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                @endforeach
+
                             </select>
                         </div>
 
@@ -71,41 +72,41 @@
                         <tr>
                             <th>#</th>
                             <th>Photo</th>
-                            <th>Product Name</th>
+                            <th>Name</th>
                             <th>Regular Price</th>
                             <th>Offer Price</th>
                             <th>Category</th>
+                            <th>Manufacturer</th>
+                            <th>Section</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- Example Row -->
-                        <tr>
-                            <td>1</td>
-                            <td>Photo</td>
-                            <td>Brown Borka</td>
-                            <td>₱ 4000.00</td>
-                            <td>₱ 2500.00</td>
-                            <td>Category 5</td>
-                            <td>
-                                <button class="btn btn-info btn-sm" title="View"><i class="fa fa-eye"></i></button>
-                                <button class="btn btn-warning btn-sm" title="Edit"><i class="fa fa-edit"></i></button>
-                                <button class="btn btn-danger btn-sm" title="Delete"><i class="fa fa-trash"></i></button>
-                            </td>
-                        </tr>
-                        <!-- Repeat Rows as Needed -->
-                        <tr>
-                            <td>2</td>
-                            <td>Another Product</td>
-                            <td>₱ 3000.00</td>
-                            <td>₱ 1500.00</td>
-                            <td>Category 2</td>
-                            <td>
-                                <button class="btn btn-info btn-sm" title="View"><i class="fa fa-eye"></i></button>
-                                <button class="btn btn-warning btn-sm" title="Edit"><i class="fa fa-edit"></i></button>
-                                <button class="btn btn-danger btn-sm" title="Delete"><i class="fa fa-trash"></i></button>
-                            </td>
-                        </tr>
+                        <!-- Row -->
+                        @foreach ($products as $product)
+                            <tr>
+                                <td>{{ $product->id }}</td>
+                                <td>{{ $product->photo }}</td>
+                                <td>{{ $product->name }}</td>
+                                <td>{{ $product->regular_price }}</td>
+                                <td>{{ $product->offer_price }}</td>
+                                <td>{{ $product->product_category_id }}</td>
+                                <td>{{ $product->manufacturer_id }}</td>
+                                <td>{{ $product->product_section_id }}</td>
+
+                                <td>
+                                    <a href='/products/{{ $product->id }}' class="btn btn-info btn-sm" title="View">
+                                        <i class="fa fa-eye"></i>
+                                    </a>
+                                    <button class="btn btn-warning btn-sm" title="Edit">
+                                        <i class="fa fa-edit"></i>
+                                    </button>
+                                    <button class="btn btn-danger btn-sm" title="Delete">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

@@ -6,7 +6,7 @@
                 <img src="./assets/img/admin-avatar.png" width="45px" />
             </div>
             <div class="admin-info">
-                <div class="font-strong">James Brown</div>
+                <div class="font-strong">Razib Hasan</div>
                 <small>Administrator</small>
             </div>
         </div>
@@ -16,22 +16,22 @@
                     <span class="nav-label">Dashboard</span>
                 </a>
             </li>
-            <li class="heading">FEATURES</li>
+            <li class="heading">ROUTE LINKS</li>
             <li>
                 <a href="javascript:;"><i class="sidebar-item-icon fa fa-bookmark"></i>
-                    <span class="nav-label">Basic UI</span><i class="fa fa-angle-left arrow"></i></a>
+                    <span class="nav-label">Inventory</span><i class="fa fa-angle-left arrow"></i></a>
                 <ul class="nav-2-level collapse">
                     <li>
-                        <a href="colors.html">Colors</a>
+                        <a href="{{ route('products.index') }}">Products</a>
                     </li>
                     <li>
-                        <a href="typography.html">Typography</a>
+                        <a href="typography.html">Stocks</a>
                     </li>
                     <li>
-                        <a href="panels.html">Panels</a>
+                        <a href="panels.html">Stock Balance</a>
                     </li>
                     <li>
-                        <a href="buttons.html">Buttons</a>
+                        <a href="buttons.html">Stock Adjustment</a>
                     </li>
                     <li>
                         <a href="tabs.html">Tabs</a>

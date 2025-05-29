@@ -16,12 +16,12 @@
         <div class="card">
             <div class="row no-gutters">
                 <!-- Product Image -->
-                <div class="col-md-4">
-                    <img src="/img/{{ $product->photo }}" class="card-img" alt="Watch">
+                <div class="col-md-6">
+                    <img src="{{ asset('img/' . $product->photo) }}" class="card-img" alt="{{ $product->name }}">
                 </div>
 
                 <!-- Product Info -->
-                <div class="col-md-8">
+                <div class="col-md-6">
                     <div class="card-body">
                         <h3 class="card-title">{{ $product->name }}</h3>
                         <p class="text-muted mb-1">
